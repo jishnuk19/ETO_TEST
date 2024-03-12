@@ -28,7 +28,10 @@ class TodoRepository @Inject constructor(
     }
 
     private fun fetchTodosFromService(): Flow<List<Todo>> = flow {
-        emit(todoService.getTodos())
+        val todos = todoService.getTodos()
+        // Insert fetched todos into the local database
+        todoDao.insertAll(todos)
+        emit(todos)
     }
 
     private fun fetchTodosFromLocal(): Flow<List<Todo>> = todoDao.getAllTodos()

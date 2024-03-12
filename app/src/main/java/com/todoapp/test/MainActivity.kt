@@ -30,6 +30,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private lateinit var todoViewModel: TodoViewModel // Remove injection
@@ -70,5 +71,4 @@ class MainActivity : ComponentActivity() {
         unregisterReceiver(networkChangeReceiver)
     }
 }
-
 
